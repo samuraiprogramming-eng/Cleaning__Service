@@ -1,0 +1,141 @@
+/* =============== Style Switcher =============== */
+.style-switcher {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 280px;
+    height: 100%;
+    z-index: 10;
+    transform: translateX(100%);
+    transition: all 0.3s ease;
+}
+.style-switcher.open {
+    transform: translateX(0);
+    box-shadow: var(--shadow);
+}
+.style-switcher-main {
+    height: 100%;
+    padding: 30px;
+    background: var(--bg-color);
+}
+.style-switcher-main h2 {
+    font-size: var(--fs-x1);
+    font-weight: 600;
+    padding: 0 0 10px;
+    text-transform: capitalize;
+}
+.style-switcher-toggler {
+    width: 40px;
+    height: 40px;
+    font-size: var(--fs-md);
+    color: var(--text-white);
+    background: var(--main-color);
+    border: none;
+    border-radius: 5px 0 0 5px;
+    position: absolute;
+    top: 25%;
+    left: -40px;
+}
+.style-switcher-toggler i {
+    cursor: pointer;
+}
+.style-switcher-item {
+    padding: 15px 0;
+    border-top: 1px solid var(--main-color);
+}
+.style-switcher-item p {
+    margin-bottom: 10px;
+}
+.hue-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    outline: none;
+    height: 12px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    background: linear-gradient(to right,
+        hsl(0, var(--saturation), var(--lightness)),
+        hsl(30, var(--saturation), var(--lightness)),
+        hsl(60, var(--saturation), var(--lightness)),
+        hsl(90, var(--saturation), var(--lightness)),
+        hsl(120, var(--saturation), var(--lightness)),
+        hsl(150, var(--saturation), var(--lightness)),
+        hsl(180, var(--saturation), var(--lightness)),
+        hsl(210, var(--saturation), var(--lightness)),
+        hsl(240, var(--saturation), var(--lightness)),
+        hsl(270, var(--saturation), var(--lightness)),
+        hsl(300, var(--saturation), var(--lightness)),
+        hsl(330, var(--saturation), var(--lightness)),
+        hsl(360, var(--saturation), var(--lightness))
+    );
+}
+.hue-slider:focus {
+    box-shadow: var(--focus-shadow);
+}
+.hue-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--bg-white);
+    border-radius: 50%;
+    cursor: pointer;
+}
+.hue-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--bg-white);
+    border-radius: 50%;
+    cursor: pointer;
+}
+.hue-slider::-webkit-slider-thumb:hover {
+    opacity: 0.9;
+}
+.hue-slider::-moz-range-thumb:hover {
+    opacity: 0.9;
+}
+.form-switch {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+.form-switch span {
+    padding-right: 15px;
+}
+.form-switch input {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+}
+.form-switch .box {
+    width: 44px;
+    height: 24px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    position: relative;
+    transition: all 0.5s ease;
+}
+.form-switch .box::before {
+    content: '';
+    width: 14px;
+    height: 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    transition: all 0.5s ease;
+}
+.form-switch input:checked + .box {
+    background: var(--main-color);
+    border-color: var(--main-color);
+}
+.form-switch input:focus + .box {
+    box-shadow: var(--focus-shadow);
+}
+.form-switch input:checked + .box::before {
+    transform: translateX(calc(100% + 6px));
+    background: var(--bg-white);
+    border-color: transparent;
+}
